@@ -21,7 +21,7 @@ class ProjectsController extends Controller
 
 
 
-        return view('welcome')->with(['projects' => Projects::all(), 'data' => $data]);
+        return view('offline')->with(['projects' => Projects::all(), 'data' => $data]);
     }
 
     /**

@@ -77,32 +77,52 @@
 
         </div>
     </section>
-    <div class="mt-10 sm:mt-20 flex justify-center"><a href="/projects"
+    <div class=" sm:mt-20 flex justify-center"><a href="/projects"
                                                        class="font-general-medium flex items-center px-6 py-3 rounded-lg shadow-lg hover:shadow-xl bg-indigo-500 hover:bg-indigo-600 focus:ring-1 focus:ring-indigo-900 text-white text-lg sm:text-xl duration-300"
                                                        aria-label="More Projects">
             <button>More Projects</button>
         </a></div>
 
 
-    <div class="text-center text-white"><p
-            class="font-general-semibold text-2xl mt-72 sm:text-5xl font-semibold mb-2 text-ternary-dark dark:text-ternary-light">
-            Github Projects</p></div>
-    <div class="mt-10 sm:mt-10 text-white"><h3
-            class="font-general-regular text-center text-secondary-dark dark:text-ternary-light text-md sm:text-xl font-normal mb-4">
-            Take a look at my Github projects. </h3>
-        <div class="flex justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-2">
-            <div class="flex justify-between gap-2">
+    <section class="pt-10 mt-16 mb-72 sm:pt-14">
+        <div class="text-center text-white"><p
+                class="font-general-semibold text-2xl mt-72 sm:text-5xl font-semibold mb-2 text-ternary-dark dark:text-ternary-light">
+                Github Projects</p></div>
+        <div class="mt-10 sm:mt-10 text-white"><h3
+                class="font-general-regular text-center text-secondary-dark dark:text-ternary-light text-md sm:text-xl font-normal mb-4">
+                Take a look at my public Github projects. </h3>
+            <div class="flex justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-2">
+                <div class="flex justify-between gap-2">
+                </div>
             </div>
         </div>
-    </div>
 
-    @foreach($data as $github)
-        @if($github->name === 'Personal-Website')
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10">
+            @foreach($data as $github)
+                @if($github->name === 'Personal-Website')
 
-            @else
-        <h1>{{$github->name}}</h1>
-        @endif
-        @endforeach
+                @else
+                <a href="{{$github->html_url}}" target="_blank" class="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark" aria-label="Single Project">
+                    <div class="text-center py-6 flex flex-col bg-projects rounded-xl text-white mx-3 shadow-xl"><p
+                            class="font-general-semibold text-xl text-ternary-dark dark:text-ternary-light font-semibold mb-2">
+                        {{$github->name}}</p>
+                        @if($github->language === null)
+                            <span
+                                class="font-general-medium text-lg text-ternary-dark dark:text-ternary-light">Markdown</span>
+                            @else
+                        <span
+                            class="font-general-medium text-lg text-ternary-dark dark:text-ternary-light">{{$github->language}}</span>
+                        @endif
+                        <span
+                            class="font-general-medium text-lg text-ternary-dark dark:text-ternary-light"></span>
+
+                    </div>
+                </a>
+                @endif
+            @endforeach
+
+        </div>
+    </section>
 </div>
 </body>
 </html>
