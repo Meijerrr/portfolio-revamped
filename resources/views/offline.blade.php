@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <title>Mika Meijer | Offline</title>
 </head>
 <body class="bg-stoman">
